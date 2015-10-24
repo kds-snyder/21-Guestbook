@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GuestbookModelStoreContainer" CdmEntityContainer="GuestbookEntities">
+    <EntitySetMapping Name="Entries">
+      <EntityTypeMapping TypeName="GuestbookModel.Entry">
+        <MappingFragment StoreEntitySet="Entries">
+          <ScalarProperty Name="EntryId" ColumnName="EntryId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EntryText" ColumnName="EntryText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

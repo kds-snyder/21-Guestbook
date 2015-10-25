@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Large Bank Management System</title>
+  <title>Iron Gym</title>
 
   <!-- Bootstrap -->
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +14,8 @@
   <link href="bower_components/bootswatch-cyborg-wiredep/dist/bootstrap.min.css" rel="stylesheet">
   <!-- Toastr CSS file -->
   <link href="bower_components/toastr/toastr.css" rel="stylesheet">
+  <!-- Animate CSS file -->
+  <link href="bower_components/animate.css/animate.min.css" rel="stylesheet">
   <!-- Custom CSS file -->
   <link href="css/custom.css" rel="stylesheet">
 
@@ -28,12 +30,83 @@
 <body>
 
   <div class="container">
-    <!-- Application title -->
-    <div class="jumbotron other-color">
-      <h1 class="text-center">Large Bank Management System</h1>
-    </div><!-- Application title -->
 
-   
+    <!-- application title -->
+    <h1 class="bg-success animated bounceInDown">Iron Gym, the place for your muscles
+      <span><img height="62" width="62" class="pull-right" src="images/barbell_dog.jpg"/>
+    </span></h1><!-- end application title -->
+
+    <!-- row -->
+    <div class="row">
+      <!-- column 1 -->
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <img class= "animated bounceInLeft" height="120" width="225" src="images/photo_fitness_center.jpg"/>
+      </div><!-- end column 1 -->
+      <!-- column 2 -->
+      <div class="col-sm-9 col-md-9 col-lg-9 animated bounceInRight">
+          <h3>Did you have a great workout today? Tell us about it!</h3>
+          <button class="btn btn-success btn-lg" type="button" data-bind="click: addEntry">
+            Leave a comment
+          </button>
+      </div><!-- end column 2 -->
+    </div><!-- end row -->
+    <p></p>
+    <p></p>
+
+    <!-- Form to add entry-->
+    <div data-bind="visible: displayEntryForm()" >
+      <div class="well">
+        <div class="form-group">
+          <label class="form-label">Comment:</label>
+          <textarea class="form-control form-input-text" rows="4"
+          data-bind="value: inputEntry.EntryText"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Name:</label>
+          <input type="text" class="form-control form-input-text" data-bind="value: inputEntry.Name">
+        </div>
+        <div class="row"><!-- Row for buttons -->
+          <!-- Column for save button -->
+          <div class="col-sm-4 col-md-4 col-lg-4">
+              <button class="btn btn-success"
+                data-bind="click: saveEntry">
+                <span class="glyphicon glyphicon-ok"></span>Save
+             </button>
+          </div><!-- End column save button -->
+          <!-- Column for cancel button -->
+          <div class="col-sm-2 col-md-2 col-lg-2">
+              <button class="btn btn-danger"
+                  data-bind="click: cancelSaveEntry">
+                  <span class="glyphicon glyphicon-remove"></span>
+                  Cancel
+              </button>
+          </div><!-- End column cancel button -->
+        </div><!-- End row for buttons -->
+      </div><!-- End well-->
+    </div><!-- End entry form -->
+
+    <!-- entries table -->
+    <h3 class="bg-success">Previous Comments</h3>
+    <div data-bind="foreach:entriesTable"
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h6 data-bind="text: EntryText"></h6>
+        </div><!-- end panel body -->
+          <div class="panel-footer">
+            Written by: <span data-bind="text: Name"></span>
+            <span>, on: </span>
+            <span data-bind="text: CreatedDate">
+            <!--span data-bind="text: $root.dateString"-->
+            </span>
+            <!--span data-bind="text: function() { $root.dateString(); }"-->
+            <!--span data-bind="text: function() { $root.dateString($data.CreatedDate); }"-->
+          </div><!-- end panel footer -->
+        </div><!-- end panel -->
+
+        <p></p>
+      </div><!-- end entries table -->
+
 
   </div><!-- End container -->
 
@@ -42,7 +115,7 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/knockout/dist/knockout.js" type="text/javascript"></script>
   <script src="bower_components/knockout-mapping/build/output/knockout.mapping-latest.js" type="text/javascript"></script>
-  <script src="bower_components/toastr/toastr.js" type="text/javascript"></script>  
+  <script src="bower_components/toastr/toastr.js" type="text/javascript"></script>
   <script src="js/App.js" type="text/javascript"></script>
 </body>
 

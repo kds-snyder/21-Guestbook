@@ -87,7 +87,7 @@
 
     <!-- entries table -->
     <h3 class="bg-success">Previous Comments</h3>
-    <div data-bind="foreach:entriesTable"
+    <div data-bind="foreach:entriesTable">
 
       <div class="panel panel-default">
         <div class="panel-body">
@@ -98,9 +98,9 @@
             <span>, on: </span>
             <span data-bind="text: CreatedDate">
             <!--span data-bind="text: $root.dateString"-->
-            </span>
             <!--span data-bind="text: function() { $root.dateString(); }"-->
-            <!--span data-bind="text: function() { $root.dateString($data.CreatedDate); }"-->
+            <!--span data-bind="date: $data.CreatedDate"-->
+            </span>
           </div><!-- end panel footer -->
         </div><!-- end panel -->
 
